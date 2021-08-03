@@ -19,8 +19,10 @@ let routes:Routes = [
   ]
   },
   {path:'users/:id', component:PostDetailsComponent},
-  {path:'posts',component:PostsComponent},
-  {path:'posts/:id', component:PostDetailsComponent},
+  {path:'posts',component:PostsComponent,
+    children:[
+      {path:':id', component:PostDetailsComponent}
+    ]},
   {path:'users', redirectTo:'', pathMatch:'full'}
 ];
 

@@ -1,2 +1,13 @@
-<p>{{post.id}} {{post.title}} <button (click)="goToDetailsPost()">details</button></p>
 
+
+<div class="absol">
+  <div>
+    {{post.id}}
+    {{post.title}}
+    <button (click)="goToDetailsPost()" routerLink="/users/{{post.id}}">details</button>
+  </div>
+
+  <div>
+    <router-outlet></router-outlet>
+  </div>
+</div>
