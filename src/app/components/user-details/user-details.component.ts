@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {IUserModel} from "../../models/IUserModel";
 
 @Component({
@@ -10,9 +10,15 @@ import {IUserModel} from "../../models/IUserModel";
 export class UserDetailsComponent implements OnInit {
 
   user:IUserModel
-  constructor(private router:Router) {
-    // console.log(history.state);
-    this.user = this.router.getCurrentNavigation()?.extras.state as IUserModel
+  constructor(private router:Router, private activatedRoute:ActivatedRoute) {
+    this.activatedRoute.params.subscribe(val=>console.log(val))
+    console.log('sdsdc');
+    //console.log(history.state);
+    // this.activatedRoute.params.subscribe(value => {
+    //   console.log(value);
+    // this.user = this.router.getCurrentNavigation()?.extras.state as IUserModel
+    // })
+
   }
 
   ngOnInit(): void {

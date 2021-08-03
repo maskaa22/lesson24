@@ -1,7 +1,5 @@
-{{user?.id}}
-{{user?.username}}
-<button (click)="goToDetails()">details</button>
-<br>
-<a [routerLink]="['users', user.id]" [state]="user">details 1</a>
-<br>
-<a routerLink="/users/{{user.id}}" [state]="user">details 2</a>
+{{user.id}}
+{{user.username}}
+<!--<button (click)="goToDetails()" routerLink="/users/{{user.id}}">details</button>-->
+<a routerLink="/users/{{user.id}}"> details </a>
+

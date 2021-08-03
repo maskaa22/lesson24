@@ -7,17 +7,20 @@ import { UsersComponent } from './components/users/users.component';
 import { UserComponent } from './components/user/user.component';
 import {HttpClientModule} from "@angular/common/http";
 import { UserDetailsComponent } from './components/user-details/user-details.component';
-import {UserGuardService} from "./servises/user-guard.service";
 import { PostsComponent } from './components/posts/posts.component';
 import { PostComponent } from './components/post/post.component';
 import { PostDetailsComponent } from './components/post-details/post-details.component';
-import {PostGuardService} from "./servises/post-guard.service";
+
 
 let routes:Routes = [
-  {path: '', component:UsersComponent, canDeactivate:[UserGuardService]},
-  {path:'users/:id', component:UserDetailsComponent, canActivate:[UserGuardService], canDeactivate:[UserGuardService]},
-  {path:'posts',component:PostsComponent, canDeactivate:[PostGuardService]},
-  {path:'posts/:id', component:PostDetailsComponent, canActivate:[PostGuardService], canDeactivate:[PostGuardService]},
+  {path: 'users', component:UsersComponent,
+  children:[
+    {path:':id', component:UserDetailsComponent}
+  ]
+  },
+  {path:'users/:id', component:PostDetailsComponent},
+  {path:'posts',component:PostsComponent},
+  {path:'posts/:id', component:PostDetailsComponent},
   {path:'users', redirectTo:'', pathMatch:'full'}
 ];
 

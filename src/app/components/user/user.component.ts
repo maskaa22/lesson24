@@ -18,5 +18,6 @@ export class UserComponent implements OnInit {
 
   goToDetails():void {
     this.router.navigate(['users', this.user.id], {state: this.user})
+  //console.log(this.user);
   }
 }
