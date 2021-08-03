@@ -1,5 +1,11 @@
-{{user.id}}
-{{user.username}}
-<!--<button (click)="goToDetails()" routerLink="/users/{{user.id}}">details</button>-->
-<a routerLink="/users/{{user.id}}"> details </a>
+<div class="absol">
+  <div>
+    {{user.id}}
+    {{user.username}}
+    <button (click)="goToDetails()" routerLink="/users/{{user.id}}">details</button>
+  </div>
 
+  <div>
+    <router-outlet></router-outlet>
+  </div>
+</div>
